@@ -1,0 +1,260 @@
+/* Reset / base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111111;
+
+  /* BAKGRUNNSBILDE */
+  background-image: url("../img/aiguille-du-midi-mont-blanc-massif.jpg");
+  background-size: cover;        /* fyller skjermen pent */
+  background-position: center;   /* sentrer bildet */
+  background-repeat: no-repeat;  /* ingen gjentagelse */
+  background-attachment: fixed;  /* fin paralax-effekt */
+}
+
+
+
+/* Layout */
+.page {
+  width: 100%;
+  margin: 5rem 0 3rem;  /* avstand fra navbar og nedover */
+  padding: 0;
+}
+
+
+
+/* NAVBAR */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* venstre – midt – høyre */
+  position: relative;
+}
+
+
+
+
+/* Logoen til venstre, litt ned over navbaren */
+/* Venstre logo */
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  transition: opacity 0.25s ease;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+/* Slide-in meny fra høyre */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 260px;
+  margin: 0;
+  padding: 5rem 2rem 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background: #ffffff;
+  box-shadow: -12px 0 30px rgba(0, 0, 0, 0.12);
+
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+
+  z-index: 50;            /* MENYEN OVER OVERLAY */
+  pointer-events: auto;   /* viktig */
+}
+
+.nav-links.open {
+  transform: translateX(0);
+}
+
+
+.nav-links li {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: #111;
+  text-decoration: none;
+}
+
+.nav-links a:visited {
+  color: #111; /* ingen lilla linker */
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Overlay bak menyen */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 40;            /* under menyen */
+}
+
+.nav-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;   /* gjør den klikkbar */
+}
+
+
+/* Burger-ikonet (bilde) */
+.burger-icon {
+  width: 28px;
+  height: auto;
+  display: block;
+  pointer-events: none; /* du klikker knappen, ikke bildet */
+}
+
+/* Hamburger-knapp – rund, større */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 0.5rem;
+}
+
+.nav-toggle:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* Midtstilt logo i navbaren */
+/* Midtstilt logo i navbaren */
+.center-logo-link {
+  margin: 0 auto;                     /* sentrer mellom venstre og høyre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-logo {
+  height: 70px;                       /* juster om du vil */
+  width: auto;
+  opacity: 0.95;
+  pointer-events: none;               /* bare visuelt, ikke klikkbar */
+}
+
+.center-logo-link:hover .center-logo {
+  opacity: 1;
+}
+
+
+/* CARDS – full bredde */
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;   /* én kolonne */
+  gap: 2.5rem;
+  padding: 0 2rem;              /* litt luft fra kantene */
+  box-sizing: border-box;
+}
+
+
+.card {
+  border: 1px solid #ffffff;
+  padding: 1.6rem 1.8rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
+  height: 100%;                 /* fyll gridcellen */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background-color: #fafafa;
+}
+
+/* NATURLIG SNØANIMASJON */
+#snow-container {
+  pointer-events: none;          /* ikke blokker klikk */
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 5;                    /* under navbar/meny, over bakgrunn */
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  opacity: 0.9;
+  filter: blur(0.5px);
+  animation-name: snow-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Fall + litt sideveis drift i EN animasjon */
+@keyframes snow-fall {
+  0% {
+    transform: translate(0, -10vh);
+  }
+  50% {
+    transform: translate(10px, 50vh);
+  }
+  100% {
+    transform: translate(-10px, 110vh);
+  }
+}
