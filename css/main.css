@@ -195,8 +195,8 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;   /* én kolonne */
-  gap: 2.5rem;
-  padding: 0rem;              /* litt luft fra kantene */
+  gap: 20rem;
+  padding: 4rem;              /* litt luft fra kantene */
   box-sizing: border-box;
 }
 
@@ -205,7 +205,7 @@ body {
   border: 1px solid #ffffff;
   padding: 1.6rem 1.8rem;
   background: #ffffff;
-  border-radius: 0;
+  border-radius: 5px;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
   height: 100%;                 /* fyll gridcellen */
   display: flex;
@@ -276,7 +276,7 @@ body {
 
 .card h2 {
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   letter-spacing: 0.6px;
 }
 
@@ -301,3 +301,6 @@ body {
   display: block;
 }
 
+.intro-card {
+  text-align: center;
+}
