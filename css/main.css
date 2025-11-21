@@ -9,6 +9,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -303,4 +304,74 @@ body {
 
 .intro-card {
   text-align: center;
+}
+
+/* MOBILFIX FOR NAVBAR */
+@media (max-width: 768px) {
+
+  /* Gjør hele navbaren 100% hvit */
+  .site-header {
+    background: #ffffff;
+  }
+
+  .navbar {
+    padding: 0.6rem 1rem;
+    background: #ffffff;  /* sørger for at hele stripen er hvit */
+  }
+
+  /* Venstre logo (ikon) litt mindre */
+  .logo {
+    height: 55px;
+  }
+
+  /* Sentrert "Laurent Saison"-logo skal være mindre */
+  .center-logo {
+    height: 42px;     /* ← juster hvis du vil ha mindre eller større */
+    scale: 1;         /* fjerner desktop-skalering */
+    opacity: 1;
+  }
+
+  /* Unngå at ting overlapper */
+  .center-logo-link {
+    max-width: 60%;
+  }
+
+  /* Burger-ikonet litt mindre og nærmere kanten */
+  .nav-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+    margin-right: 0;
+  }
+
+  .burger-icon {
+    width: 22px;
+  }
+
+  .cards {
+    padding: 1.5rem 1rem;  /* mindre padding på sidene */
+    gap: 4rem;             /* fortsatt luft, men ikke ekstremt */
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 2rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  /* Bilder i tekst: ikke float på mobil */
+  .float-image-V,
+  .float-image-H {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem 0;
+    display: block;
+  }
 }
