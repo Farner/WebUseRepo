@@ -153,14 +153,16 @@ body {
   justify-content: center;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 50%;        /* ← gjør den rund */
   border: none;
-  background: #ffffff;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  background: #ffffff;       /* ← hvit bakgrunn */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);  /* ← skyggen rundt */
   cursor: pointer;
   padding: 8px;
   margin-right: 0.5rem;
 }
+
+
 
 .nav-toggle:hover {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
@@ -179,7 +181,8 @@ body {
   height: 70px;                       /* juster om du vil */
   width: auto;
   opacity: 0.95;
-  pointer-events: none;               /* bare visuelt, ikke klikkbar */
+  pointer-events: none; 
+  scale: 0.7;            /* bare visuelt, ikke klikkbar */
 }
 
 .center-logo-link:hover .center-logo {
@@ -193,7 +196,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;   /* én kolonne */
   gap: 2.5rem;
-  padding: 0 2rem;              /* litt luft fra kantene */
+  padding: 0rem;              /* litt luft fra kantene */
   box-sizing: border-box;
 }
 
@@ -202,7 +205,7 @@ body {
   border: 1px solid #ffffff;
   padding: 1.6rem 1.8rem;
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 0;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
   height: 100%;                 /* fyll gridcellen */
   display: flex;
@@ -237,7 +240,7 @@ body {
   top: -10px;
   width: 6px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(122, 196, 238, 0.95);
   border-radius: 50%;
   opacity: 0.9;
   filter: blur(0.5px);
@@ -258,3 +261,43 @@ body {
     transform: translate(-10px, 110vh);
   }
 }
+
+.card p, 
+.card h2, 
+.card h3 {
+  line-height: 1.8;          /* luft mellom linjer */
+  letter-spacing: 0.3px;     /* sofistikert typografi */
+  margin-bottom: 1.4rem;     /* luft mellom avsnitt */
+}
+
+.card {
+  padding: 1rem 4rem;        /* mer “magasin-layout” */
+}
+
+.card h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 3rem;
+  letter-spacing: 0.6px;
+}
+
+.card p {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.2rem;
+}
+
+.float-image-V {
+  width: 40%;            /* gjør bildet mindre */
+  float: left;          /* legger bildet på høyre side */
+  margin: 0 3rem 2rem 0; /* luft rundt bildet (venstre + under) */
+  border-radius: 0;      /* old money = firkantet */
+  display: block;
+}
+
+.float-image-H {
+  width: 40%;            /* gjør bildet mindre */
+  float: right;          /* legger bildet på høyre side */
+  margin: 0 0 1.5rem 1.5rem; /* luft rundt bildet (venstre + under) */
+  border-radius: 0;      /* old money = firkantet */
+  display: block;
+}
+
